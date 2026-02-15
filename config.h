@@ -65,10 +65,10 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ run_command, " %s |",        "mpris-ctl info '%track_name - %artist_name'"},
+	{ run_command, " %s |",        "mpc status -f \"%title% - %artist%|%file%\""},
 	{ cpu_perc,    " CPU: %s%% |", NULL },
 	{ ram_perc,    " Mem: %s%% |", NULL },
-	{ run_command, " Vol: %s |",   "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
-	{ run_command, " %s |",        "dwmstatus weather" },
+	{ vol_perc,    " Vol: %s%% |", "/dev/mixer" },
+	{ run_command, " %s |",        "dwmstatus -w" },
 	{ datetime,    " %s ",         "%a %F %T" },
 };
